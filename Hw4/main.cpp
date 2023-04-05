@@ -158,11 +158,12 @@ int main()
 
     // TODO: set up UV buffer
 
-    glGenBuffers(1, &UVBO);
+  
     glBindBuffer(GL_ARRAY_BUFFER, UVBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(uv), uv, GL_STATIC_DRAW);
+    glGenBuffers(1, &UVBO);
     glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, (void*) 0);
     glEnableVertexAttribArray(1);
+   glBufferData(GL_ARRAY_BUFFER, sizeof(uv), uv, GL_STATIC_DRAW);
 
 
     // Game loop
@@ -313,3 +314,5 @@ GLuint loadDDS(const char* imagepath) {
 
     return textureID;
 }
+
+
